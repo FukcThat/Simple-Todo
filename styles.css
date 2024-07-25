@@ -1,0 +1,111 @@
+:root {
+    --hover: rgb(77, 77, 77);
+}
+
+* {
+    background-color: rgb(57, 57, 57);
+    color: white;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+}
+
+form {
+    margin-top: 4rem;
+    display: flex;
+    gap: 1rem;
+}
+
+button {
+    cursor: pointer;
+    transition-duration: 200ms;
+}
+
+input {
+    padding: 0.5rem;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid grey;
+}
+
+input:hover {
+    background: var(--hover);
+}
+
+input:focus {
+    background-color: var(--hover);
+    border: 1px solid white;
+}
+
+input::placeholder {
+    color: rgba(215, 196, 196, 0.5);
+}
+
+.submitBtn {
+    padding: 0.5rem;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid grey;
+}
+
+.submitBtn:hover {
+    background-color: var(--hover);
+}
+
+.submitBtn:focus {
+    background-color: var(--hover);
+    border: 1px solid white;   
+}
+
+.todoContainer {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: hidden scroll;
+}
+
+.todo {
+    width: 100%;
+    padding: 0rem 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.todoTextBtn {
+    border: none;
+    padding: 0.5rem;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.todoTextBtn:hover {
+    background-color: var(--hover);
+}
+
+.done {
+    color: rgb(156, 129, 129);
+    text-decoration: line-through;
+}
+
+.todoDeleteBtn {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: red;
+    font-size: 14px;
+}
+
+.todoDeleteBtn:hover, .todoDeleteBtn:active {
+    background-color: rgb(254, 57, 57);
+}
+
