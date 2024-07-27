@@ -1,9 +1,8 @@
 import { setDelBtn, setTodoTextBtn } from "./helper";
 
 const todoContainer = document.querySelector(".todoContainer");
-const todoList = [];
 
-export const renderTodoList = () => {
+export const renderTodoList = (todoList) => {
   todoContainer.innerHTML = "";
 
   todoList.forEach((todoItem, index) => {

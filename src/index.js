@@ -1,22 +1,23 @@
 // Classes
 
-import { submitNewTodo } from "./form";
-import { deleteTodo, loadTodoList, toggleTodoDone } from "./helper";
+import { addTodo, loadTodoList, saveTodoList } from "./helper";
 import { renderTodoList } from "./render";
 
 // Global Variables
 
+const formElement = document.querySelector("form");
+export const todoList = [];
+
 // Eventlisteners
 
-submitNewTodo();
+formElement.addEventListener("submit", (e) => {
+  e.preventDefault();
+  addTodo();
+});
 
 // Helpter Functions
-
-toggleTodoDone();
-deleteTodo();
 
 // Function Calls
 
 loadTodoList();
-
-renderTodoList();
+renderTodoList(todoList);

@@ -1,4 +1,4 @@
-export class Todo {
+class Todo {
   constructor(name, done = false) {
     this.name = name;
     this.done = done;
@@ -8,3 +8,5 @@ export class Todo {
     this.done = !this.done;
   };
 }
+
+module.exports = Todo;

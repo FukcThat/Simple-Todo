@@ -1,14 +1,43 @@
+import { todoList } from ".";
 import { renderTodoList } from "./render";
+import Todo from "./Todo";
+
+const todoInputElement = document.querySelector("input");
+const formElement = document.querySelector("form");
+
+// Add Todo
+export const addTodo = () => {
+  if (todoInputElement.value === "") {
+    window.alert("Please enter a task.");
+    return;
+  }
+
+  // Make a new Todo
+  const newTodo = new Todo(todoInputElement.value);
+
+  // Add todo to list
+  todoList.push(newTodo);
+
+  // Save it to local Storage
+  saveTodoList();
+
+  // Render new List
+  renderTodoList(todoList);
+
+  // Reset Form
+  formElement.reset();
+};
 
 // Load from Local Storage
 export const loadTodoList = () => {
   const loadedTodoList = JSON.parse(localStorage.getItem("TodoList"));
 
+  if (!loadedTodoList) return;
+
   loadedTodoList.forEach((parsedTodo) => {
     const resurrectedTodo = new Todo(parsedTodo.name, parsedTodo.done);
     todoList.push(resurrectedTodo);
   });
-  console.log(loadedTodoList);
 };
 
 // Save to Local Storage
@@ -20,14 +49,14 @@ export const saveTodoList = () => {
 export const toggleTodoDone = (todoItem) => {
   todoItem.toggleDone();
   saveTodoList();
-  renderTodoList();
+  renderTodoList(todoList);
 };
 
 // Delete Todo
 export const deleteTodo = (index) => {
   todoList.splice(index, 1);
   saveTodoList();
-  renderTodoList();
+  renderTodoList(todoList);
 };
 
 // Create Todo Element
